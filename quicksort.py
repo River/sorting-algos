@@ -10,17 +10,22 @@ def quicksort(A):
     if len(A) <= 1:
         return A
     else:
-        p = A[len(A)-1]
-        sort = A[0:len(A)-1]
+        p = A[0]
+
         less = []
+        pivot = []
         more = []
-        for i in sort:
+
+        for i in A:
             if i > p:
                 more.append(i)
-            else:
+            elif i < p:
                 less.append(i)
+            else:
+                pivot.append(i)
+
         less = quicksort(less)
         more = quicksort(more)
-        return less + [p] + more
+        return less + pivot + more
 
 print quicksort(A)
