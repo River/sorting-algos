@@ -23,7 +23,7 @@ merge(left, right):
 '''
 
 def merge_sort(m):
-  if len(m) == 1:
+  if len(m) <= 1:
     return m
   else:
     middle = len(m) // 2

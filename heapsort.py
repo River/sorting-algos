@@ -53,18 +53,21 @@ def max_heapify_down(heap, i):
     return heap
 
 def heap_sort(data):
-  heap = build_heap(data)
-  sorted_data = []
-  while len(heap) > 1:
-    # take root node of the heap (largest value)
-    # move rightmost child to the root
-    sorted_data.append(heap[0])
-    heap[0], heap[len(heap)-1] = heap[len(heap)-1], heap[0]
-    del heap[len(heap)-1]
-    # heap is now broken; fix heap by traversing downwards
-    heap = max_heapify_down(heap, 0)
-  sorted_data += heap
-  return list(reversed(sorted_data))
+  if len(data) <= 1:
+    return data
+  else:
+    heap = build_heap(data)
+    sorted_data = []
+    while len(heap) > 1:
+      # take root node of the heap (largest value)
+      # move rightmost child to the root
+      sorted_data.append(heap[0])
+      heap[0], heap[len(heap)-1] = heap[len(heap)-1], heap[0]
+      del heap[len(heap)-1]
+      # heap is now broken; fix heap by traversing downwards
+      heap = max_heapify_down(heap, 0)
+    sorted_data += heap
+    return list(reversed(sorted_data))
 
 def sort(data):
   return heap_sort(data)
