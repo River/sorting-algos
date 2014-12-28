@@ -28,8 +28,8 @@ quicksort.py: 0.0032s to sort 1000 numbers
 - Input data sorted...   NO
 - Output data sorted... YES
 
-selectionsort.py: 0.0950s to sort 0 numbers
-- Input data sorted...  YES
+selectionsort.py: 0.0950s to sort 1000 numbers
+- Input data sorted...   NO
 - Output data sorted... YES
 
 ```
