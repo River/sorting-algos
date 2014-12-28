@@ -4,8 +4,6 @@
 #     quicksort(A, lo, p - 1)
 #     quicksort(A, p + 1, hi)
 
-A = [3,7,8,5,2,1,9,5,4]
-
 def quicksort(A):
     if len(A) <= 1:
         return A
@@ -28,4 +26,5 @@ def quicksort(A):
         more = quicksort(more)
         return less + pivot + more
 
-print quicksort(A)
+def sort(data):
+  return quicksort(data)
