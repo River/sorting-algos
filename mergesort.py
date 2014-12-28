@@ -27,9 +27,10 @@ def merge_sort(m):
     return m
   else:
     middle = len(m) // 2
-    left = merge_sort(m[:middle])
+    # left = merge_sort(m[:middle])
     right = merge_sort(m[middle:])
-    return merge(left, right)
+    m = merge_sort(m[:middle])
+    return merge(m, right)
 
 # SLOWER: linear merge from smallest to largest, with pop(0)
 # def merge(left, right):
