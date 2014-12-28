@@ -13,8 +13,13 @@ def main():
   args = sys.argv[1:]
 
   if len(args) < 2:
-    print('usage: input-file sorting-algorithm [sorting-algorithm ...]')
+    print('usage: [--output] input-file sorting-algorithm [sorting-algorithm ...]')
     sys.exit(1)
+
+  print_output = False
+  if args[0] == '--output':
+    print_output = True
+    del args[0]
 
   input_file = args[0]
   del args[0]
@@ -45,6 +50,8 @@ def main():
       (sorting_algo, end-start, len(input_data)))
     print(' - Input data sorted...  %s' % ((' NO','YES')[is_sorted(input_data)]))
     print(' - Output data sorted... %s' % ((' NO','YES')[is_sorted(output_data)]))
+    if print_output:
+      print(output_data)
     print('')
 
 if __name__ == '__main__':
