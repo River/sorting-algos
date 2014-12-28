@@ -1,33 +1,36 @@
-def build_heap(data):
-  # build heap iteratively by adding each node and max heapifying after each
-  # step; n iterations of log(n) complexity, therefore this process is O(nlogn)
-  heap = [data[0]]
-  for d in data[1:]:
-    # insert new point as leftmost leaf at highest level
-    heap.append(d)
-    # max-heapify, by swapping with parent until parent is larger
-    heap = max_heapify_up(heap, len(heap)-1)
-  return heap
+# UNNEEDED CODE
+# build_heap and max_heapify_up are replaced by build_heap2 and max_heapify_down
+#
+# def build_heap(data):
+#   # build heap iteratively by adding each node and max heapifying after each
+#   # step; n iterations of log(n) complexity, therefore this process is O(nlogn)
+#   heap = [data[0]]
+#   for d in data[1:]:
+#     # insert new point as leftmost leaf at highest level
+#     heap.append(d)
+#     # max-heapify, by swapping with parent until parent is larger
+#     heap = max_heapify_up(heap, len(heap)-1)
+#   return heap
+#
+# def max_heapify_up(heap, i):
+#   # if this is the root node, then we are done
+#   if i == 0:
+#     return heap
+#   else:
+#     # if parent is smaller, then swap with parent
+#     p = (i - 1) // 2
+#     if heap[p] < heap[i]:
+#       heap[p], heap[i] = heap[i], heap[p]
+#       return max_heapify_up(heap, p)
+#     # if parent is not smaller, then we are done
+#     else:
+#       return heap
 
 def build_heap2(data):
   heap = list(data)
   for i in range(len(heap)//2, -1, -1):
     heap = max_heapify_down(heap, i)
   return heap
-
-def max_heapify_up(heap, i):
-  # if this is the root node, then we are done
-  if i == 0:
-    return heap
-  else:
-    # if parent is smaller, then swap with parent
-    p = (i - 1) // 2
-    if heap[p] < heap[i]:
-      heap[p], heap[i] = heap[i], heap[p]
-      return max_heapify_up(heap, p)
-    # if parent is not smaller, then we are done
-    else:
-      return heap
 
 def max_heapify_down(heap, i):
   # this node has two children
